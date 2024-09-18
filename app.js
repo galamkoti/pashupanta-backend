@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 5000;
 // app.use(express.json());
 app.use(bodyParser.json());
 app.use(i18nextMiddleware.handle(i18next));
-//https://chatgpt.com/c/66e6d15a-a310-8008-9d9b-667d8e155ef1  use it for implementing in React Native app
+
 
 app.get("/", (req, res) => {
     res.send("Hello From pashu Panta Backend")
