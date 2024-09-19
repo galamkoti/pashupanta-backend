@@ -10,6 +10,7 @@ const language_router=require("./routes/language");
 const i18next=require('./config/i18n');
 const i18nextMiddleware = require('i18next-http-middleware');
 const app = express()
+const cors = require('cors');
 
 const PORT = process.env.PORT || 5000;
 // Middleware to parse JSON
@@ -17,7 +18,7 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(i18nextMiddleware.handle(i18next));
 
-
+app.use(cors());
 app.get("/", (req, res) => {
     res.send("Hello From pashu Panta Backend")
 })

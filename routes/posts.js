@@ -6,7 +6,7 @@ const { getAllUserPosts, createNewPost, getMyOwnPosts, deletePost, updatePost } 
 
 router.route("/").get(getAllUserPosts);
 router.route("/create").post(createNewPost);
-router.route("/myposts").get(getMyOwnPosts);
+router.route("/myposts/user/:id").get(getMyOwnPosts);
 router.route("/update/:id").put(updatePost);  //needs to be /update/:id
 router.route("/delete").delete(deletePost);   //needs to be /delete/:id
 

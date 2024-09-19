@@ -3,29 +3,54 @@ const User = require("../models/User");
 
 global.PostsData = [];
 const getAllUserPosts = async (req, res) => {
-    global.PostsData = await Post.find({});
-    res.status(200).json({ msg: `Got all the Posts ${PostsData}` });
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 3;
+    const skip = (page - 1) * limit;
+    const kindOfPost=req.query.kind;
+    try{
+        const AnimalPostData=await Post.find({ kind: kindOfPost }).skip(skip).limit(limit);
+        global.PostsData = AnimalPostData;
+        const totalPosts = await Post.countDocuments({ kind: kindOfPost });
+        res.status(200).json({
+            success: true,
+            data: AnimalPostData,
+            totalPosts,
+            currentPage: page,
+            totalPages: Math.ceil(totalPosts / limit),
+            msg: `Got all the Posts ${AnimalPostData}`
+        });
+    }
+    catch(error){
+        res.status(500).json({msg:"failed to fetch the posts"});
+    }
 }
 
 const getMyOwnPosts = async (req, res) => {
     try {
-        const user_id = req.body.id;
-        if (!user_id) {
-            return res.status(400).json({ message: "User ID not provided in the request body" });
-        }
-        console.log("user id", user_id, global.PostsData)
-        if (!global.PostsData || !Array.isArray(global.PostsData)) {
-            return res.status(500).json({ message: "PostsData is not available or is not an array" });
-        }
-        const myPostsData = global.PostsData.filter((item) => String(item.user) == String(user_id));
-        console.log("My Posts", myPostsData);
-        if (myPostsData.length == 0) {
-            return res.status(404).json({ message: "No posts found for the given user" });
-        }
-        res.status(200).json({ message: myPostsData });
+        const userId  = req.params.id;
+        console.log(userId)
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 3;
+        const skip = (page - 1) * limit;
+    
+        const AnimalPostData = await Post.find({ kind: "AnimalPost", user: userId })
+            .skip(skip) 
+            .limit(limit);  
+    
+        const totalPosts = await Post.countDocuments({ kind: "AnimalPost", user: userId });
+    
+        res.status(200).json({
+            success: true,
+            data: AnimalPostData,
+            totalPosts,
+            currentPage: page,
+            totalPages: Math.ceil(totalPosts / limit),
+            msg: `Got all the animal posts for user ${userId}`
+        });
     } catch (error) {
-        res.status(500).json({ message: `Error while fetching  My Posts ${error.message}` })
+        res.status(500).json({ msg: "Failed to fetch the posts" });
     }
+    
 }
 
 const createNewPost = async (req, res) => {
