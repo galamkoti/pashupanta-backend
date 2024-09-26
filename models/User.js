@@ -18,14 +18,21 @@ const UserSchema= new mongoose.Schema({
         message: props => `${props.value} is not a valid phone number!`
     },
     },
+    verified:{
+        type:Boolean,
+        default:false,
+        required:true
+    },
     email:{
         type:String,
         trim:true,
-        unique:true
+        unique:true,
+        required:false
     },
     password:{
         type:String,
-        trim:true
+        trim:true,
+        required:false
     },
     createdAt:{
         type:Date,
