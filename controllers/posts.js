@@ -1,7 +1,38 @@
 const Post = require("../models/Post");
 const User = require("../models/User");
 
+//use user_id ( as it is user_id in db)
 global.PostsData = [];
+
+const getNearbyPosts = async (req, res) => {
+    try {
+      const { lat, lon, radius = 100 } = req.query; // Get latitude, longitude, and radius from query params
+  
+      if (!lat || !lon) {
+        return res.status(400).json({ message: 'Latitude and Longitude are required' });
+      }
+  
+      const maxDistance = radius * 1000; // Convert km to meters
+  
+      const posts = await Post.find({
+        location: {
+          $geoWithin: {
+            $centerSphere: [[lon, lat], maxDistance / 6378100] // Earth’s radius in meters
+          }
+        }
+      });
+  
+      res.status(200).json({
+        success: true,
+        data: posts,
+        message: `Fetched posts within ${radius} KM radius`,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Failed to fetch nearby posts' });
+    }
+  };
+
 const getAllUserPosts = async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 3;
@@ -33,11 +64,11 @@ const getMyOwnPosts = async (req, res) => {
         const limit = parseInt(req.query.limit) || 3;
         const skip = (page - 1) * limit;
     
-        const AnimalPostData = await Post.find({ kind: "AnimalPost", user: userId })
+        const AnimalPostData = await Post.find({ kind: "AnimalPost", user_id: userId })
             .skip(skip) 
             .limit(limit);  
     
-        const totalPosts = await Post.countDocuments({ kind: "AnimalPost", user: userId });
+        const totalPosts = await Post.countDocuments({ kind: "AnimalPost", user_id: userId });
     
         res.status(200).json({
             success: true,
@@ -125,4 +156,4 @@ const deletePost = async (req, res) => {
 }
 
 
-module.exports = { getAllUserPosts, createNewPost, getMyOwnPosts, deletePost, updatePost };
+module.exports = { getAllUserPosts, createNewPost, getMyOwnPosts, deletePost, updatePost,getNearbyPosts };

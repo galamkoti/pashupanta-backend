@@ -6,7 +6,7 @@ const getAnimalPosts = async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 3;
     const skip = (page - 1) * limit;
-    try{
+    try {
         const AnimalPostData = await Post.find({ kind: "AnimalPost" }).skip(skip).limit(limit);
         const totalPosts = await Post.countDocuments({ kind: "AnimalPost" });
         res.status(200).json({
@@ -18,18 +18,46 @@ const getAnimalPosts = async (req, res) => {
             msg: `Got all the Posts ${AnimalPostData}`
         });
     }
-    catch(error){
-        res.status(500).json({msg:"failed to fetch the posts"});
+    catch (error) {
+        res.status(500).json({ msg: "failed to fetch the posts" });
     }
 }
 
 const createAnimalPost = async (req, res) => {
-    const { user, description, images, phone, price, locationName, animalType, breed, age } = req.body;
-    const newAnimalPost = new AnimalPost({
-        user, description, images, phone, price, locationName, animalType, breed, age
+    console.log("req.body",req.body);
+    const {
+        user_id,
+        description,
+        images,
+        phone,
+        price,
+        locationName,
+        latitude,
+        longitude,
+        category,
+        breed,
+        age,
+        lactationPeriod,
+        childPresent,
+        milkCapacity,
+        pregnancyStatus,
+        isBargainable } = JSON.parse(req.body.body);
+    const newAnimalPost = new AnimalPost({user_id,description,images,phone,price,locationName,
+        location: {
+            type: "Point",
+            coordinates: [longitude, latitude]  // Correctly set the coordinates
+        },
+        animalType:category,
+        breed,
+        age,
+        lactationPeriod,
+        childPresent,
+        milkCapacity,
+        pregnancyStatus,
+        isBargainable
     });
     await newAnimalPost.save();
-    await User.findByIdAndUpdate(user,
+    await User.findByIdAndUpdate(user_id,
         {
             $push: { posts: newAnimalPost._id }
         });

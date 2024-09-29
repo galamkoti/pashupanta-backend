@@ -1,11 +1,11 @@
 const mongoose=require("mongoose")
 
 const postSchema=new mongoose.Schema({
-    user:{
+    user_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"User",
         type:String,
-        required:true
+        required:false
     },
     description:{
         type:String,
@@ -19,22 +19,35 @@ const postSchema=new mongoose.Schema({
     ],
     phone:{
         type:Number,
-        required:true
+        required:false
     },
     viewed:{
         type:Number,
         default:0
     },
     price:{
-        type:Number,
-        required:true
+        type:String,
+        required:false
     },
     locationName:{
         type:String,
-        required:true
+        required:false
+    },
+    location:{
+        type:{
+            type:String,
+            default:'Point'
+        },
+        coordinates:{
+            type:[Number],
+            required:false
+        }
     }
 },{timestamps:true , discriminatorKey:'kind'})
 
+
 const Post=mongoose.model("Post",postSchema);
+
+Post.collection.createIndex({ location: '2dsphere' });
 
 module.exports=Post;

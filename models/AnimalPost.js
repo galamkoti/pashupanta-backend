@@ -4,7 +4,7 @@ const Post = require("./Post");
 const animalPostSchema=new mongoose.Schema({    
     animalType: {
         type: String,
-        required: true
+        required: false
     },
     breed: {
         type: String,
@@ -20,6 +20,18 @@ const animalPostSchema=new mongoose.Schema({
     },
     childPresent:{
         type:Boolean,
+        required:false
+    },
+    milkCapacity:{
+        type:Number,
+        required:false
+    },
+    pregnancyStatus:{
+        type:String,
+        required:false
+    },
+    isBargainable:{
+        type:String,
         required:false
     }
 });
