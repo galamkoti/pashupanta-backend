@@ -6,40 +6,40 @@ global.PostsData = [];
 
 const getNearbyPosts = async (req, res) => {
     try {
-      const { lat, lon, radius = 100 } = req.query; // Get latitude, longitude, and radius from query params
-  
-      if (!lat || !lon) {
-        return res.status(400).json({ message: 'Latitude and Longitude are required' });
-      }
-  
-      const maxDistance = radius * 1000; // Convert km to meters
-  
-      const posts = await Post.find({
-        location: {
-          $geoWithin: {
-            $centerSphere: [[lon, lat], maxDistance / 6378100] // Earth’s radius in meters
-          }
+        const { lat, lon, radius = 100 } = req.query; // Get latitude, longitude, and radius from query params
+
+        if (!lat || !lon) {
+            return res.status(400).json({ message: 'Latitude and Longitude are required' });
         }
-      });
-  
-      res.status(200).json({
-        success: true,
-        data: posts,
-        message: `Fetched posts within ${radius} KM radius`,
-      });
+
+        const maxDistance = radius * 1000; // Convert km to meters
+
+        const posts = await Post.find({
+            location: {
+                $geoWithin: {
+                    $centerSphere: [[lon, lat], maxDistance / 6378100] // Earth’s radius in meters
+                }
+            }
+        });
+
+        res.status(200).json({
+            success: true,
+            data: posts,
+            message: `Fetched posts within ${radius} KM radius`,
+        });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Failed to fetch nearby posts' });
+        console.error(error);
+        res.status(500).json({ message: 'Failed to fetch nearby posts' });
     }
-  };
+};
 
 const getAllUserPosts = async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 3;
     const skip = (page - 1) * limit;
-    const kindOfPost=req.query.kind;
-    try{
-        const AnimalPostData=await Post.find({ kind: kindOfPost }).skip(skip).limit(limit);
+    const kindOfPost = req.query.kind;
+    try {
+        const AnimalPostData = await Post.find({ kind: kindOfPost }).sort({ createdAt: -1 }).skip(skip).limit(limit);
         global.PostsData = AnimalPostData;
         const totalPosts = await Post.countDocuments({ kind: kindOfPost });
         res.status(200).json({
@@ -51,25 +51,25 @@ const getAllUserPosts = async (req, res) => {
             msg: `Got all the Posts ${AnimalPostData}`
         });
     }
-    catch(error){
-        res.status(500).json({msg:"failed to fetch the posts"});
+    catch (error) {
+        res.status(500).json({ msg: "failed to fetch the posts" });
     }
 }
 
 const getMyOwnPosts = async (req, res) => {
     try {
-        const userId  = req.params.id;
+        const userId = req.params.id;
         console.log(userId)
         const page = parseInt(req.query.page) || 1;
         const limit = parseInt(req.query.limit) || 3;
         const skip = (page - 1) * limit;
-    
+
         const AnimalPostData = await Post.find({ kind: "AnimalPost", user_id: userId })
-            .skip(skip) 
-            .limit(limit);  
-    
+            .skip(skip)
+            .limit(limit);
+
         const totalPosts = await Post.countDocuments({ kind: "AnimalPost", user_id: userId });
-    
+
         res.status(200).json({
             success: true,
             data: AnimalPostData,
@@ -81,7 +81,7 @@ const getMyOwnPosts = async (req, res) => {
     } catch (error) {
         res.status(500).json({ msg: "Failed to fetch the posts" });
     }
-    
+
 }
 
 const createNewPost = async (req, res) => {
@@ -92,7 +92,7 @@ const createNewPost = async (req, res) => {
         await newPost.save();
         await User.findByIdAndUpdate(user,
             {
-                $push:{posts:newPost._id}
+                $push: { posts: newPost._id }
             });
         res.status(200).json({ msg: `created New Post,${description},${phone}` });
     }
@@ -156,4 +156,4 @@ const deletePost = async (req, res) => {
 }
 
 
-module.exports = { getAllUserPosts, createNewPost, getMyOwnPosts, deletePost, updatePost,getNearbyPosts };
+module.exports = { getAllUserPosts, createNewPost, getMyOwnPosts, deletePost, updatePost, getNearbyPosts };

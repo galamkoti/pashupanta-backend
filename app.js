@@ -18,8 +18,9 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware to parse JSON
 // app.use(express.json());
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use(i18nextMiddleware.handle(i18next));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 app.use(cors());
 app.get("/", (req, res) => {

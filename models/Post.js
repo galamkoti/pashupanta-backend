@@ -17,6 +17,12 @@ const postSchema=new mongoose.Schema({
             required:false
         }
     ],
+    videos:[
+        {
+            type:String,
+            required:false
+        }
+    ],
     phone:{
         type:Number,
         required:false
@@ -26,7 +32,7 @@ const postSchema=new mongoose.Schema({
         default:0
     },
     price:{
-        type:String,
+        type:Number,
         required:false
     },
     locationName:{
