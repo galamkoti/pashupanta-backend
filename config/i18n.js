@@ -5,7 +5,7 @@ const path = require('path');
 
 i18next.use(Backend).use(i18nextMiddleware.LanguageDetector).init({
     fallbackLng:'en',
-    preload:['en','te','ta','ml','hi','kn'],
+    preload:['en','te','ta','ml','hi','kn','pn'],
     backend:{
         loadPath:path.join(__dirname,'../locales/{{lng}}/translation.json')
     },

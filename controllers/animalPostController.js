@@ -1,6 +1,7 @@
 const AnimalPost = require("../models/AnimalPost");
 const Post = require("../models/Post");
 const User = require("../models/User");
+const {upload}=require('../config/cloudinary');
 
 
 const getAnimalPosts = async (req, res) => {
@@ -31,7 +32,6 @@ const createAnimalPost = async (req, res) => {
   const {
     user_id,
     description,
-    images,
     phone,
     price,
     latitude,
@@ -45,12 +45,27 @@ const createAnimalPost = async (req, res) => {
     pregnancyStatus,
     isBargainable,
   } = req.body;
+  console.log("re body",req.body);
+  
+  // Extract both images and video
+  const images = [];
+  let video;
 
-
+  // Use Cloudinary's upload method or another service to upload files (image or video)
+  // Assuming `req.files` has both images and video
+  req.files.forEach((file) => {
+    if (file.mimetype.startsWith("image/")) {
+      images.push(file.path); // add image URL
+    } else if (file.mimetype.startsWith("video/")) {
+      video = file.path; // add video URL
+    }
+  });
+  
   const newAnimalPost = new AnimalPost({
     user_id,
     description,
     images,
+    videos:video,
     phone,
     price,
     location: {
