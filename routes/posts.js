@@ -10,6 +10,6 @@ router.route("/nearby").get(getNearbyPosts);
 router.route("/create").post(createNewPost);
 router.route("/myposts/user/:id").get(getMyOwnPosts);
 router.route("/update/:id").put(updatePost);  //needs to be /update/:id
-router.route("/delete/:id").delete(deletePost);   //needs to be /delete/:id
+router.route("/delete/:id/:user_id").delete(deletePost);   //needs to be /delete/:id
 
 module.exports = router;

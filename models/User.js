@@ -21,18 +21,12 @@ const UserSchema= new mongoose.Schema({
     verified:{
         type:Boolean,
         default:false,
-        required:true
-    },
-    email:{
-        type:String,
-        trim:true,
-        unique:true,
         required:false
     },
     password:{
         type:String,
         trim:true,
-        required:false
+        required:true
     },
     createdAt:{
         type:Date,

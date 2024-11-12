@@ -162,6 +162,7 @@ const updatePost = async (req, res) => {
 
 const deletePost = async (req, res) => {
     const post_id = req.params.id;
+    const user_id = req.params.user_id;
     console.log("post_id",post_id)
     try {
         const post = await Post.findById(post_id);
@@ -172,6 +173,9 @@ const deletePost = async (req, res) => {
         //     res.status(500).json({ message: "You don't have permission to delete" })
         // }
         await Post.findByIdAndDelete(post_id);
+        await User.findByIdAndUpdate(user_id, {
+            $pull: { posts: post_id },
+          });
         res.status(201).json({ message: "Post Deleted Successfully" })
     }
     catch (error) {

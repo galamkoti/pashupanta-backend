@@ -39,16 +39,16 @@ const postSchema=new mongoose.Schema({
         type:String,
         required:false
     },
-    location:{
-        type:{
-            type:String,
-            default:'Point'
-        },
-        coordinates:{
-            type:[Number],
-            required:false
-        }
-    }
+    // location:{
+    //     type:{
+    //         type:String,
+    //         default:'Point'
+    //     },
+    //     coordinates:{
+    //         type:[Number],
+    //         required:false
+    //     }
+    // }
 },{timestamps:true , discriminatorKey:'kind'})
 
 
