@@ -160,9 +160,10 @@
   "are_you_sure_to_delete_post": "ನೀವು ಖಚಿತವಾಗಿ ಪೋಸ್ಟ್ ಅಳಿಸಬೇಕೆ?",
   "post_deleted_successfully": "ಪೋಸ್ಟ್ ಯಶಸ್ವಿಯಾಗಿ ಅಳಿಸಲಾಗಿದೆ",
   "successful": "ಯಶಸ್ಸು",
-  "pashu_details_submitted_successfully": "ಪಶು ವಿವರಗಳನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿದೆ! ಮುಖಪುಟಕ್ಕೆ ಹೋಗಿ ಮತ್ತು ರಿಫ್ರೆಶ್ ಮಾಡಿ",
+  "pashu_details_submitted_successfully": "ಪಶು ವಿವರಗಳನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಸಲ್ಲಿಸಲಾಗಿದೆ!",
   "error": "ದೋಷ",
   "'Something_went_wrong_Please_try_again": "ಏನೋ ತಪ್ಪಾಗಿದೆ. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
   "your_password_is_incorrect": "ನYour password is incorrect",
-  "give_feedback":"ಪ್ರತಿಕ್ರಿಯೆ ನೀಡಿ"
+  "give_feedback":"ಪ್ರತಿಕ್ರಿಯೆ ನೀಡಿ",
+  "enter_your_name":"ನಿಮ್ಮ ಹೆಸರನ್ನು ನಮೂದಿಸಿ"
 }

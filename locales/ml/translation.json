@@ -160,9 +160,10 @@
   "are_you_sure_to_delete_post": "നിങ്ങൾക്ക് പോസ്റ്റ് നീക്കം ചെയ്യണോ?",
   "post_deleted_successfully": "പോസ്റ്റ് വിജയകരമായി നീക്കം ചെയ്തു",
   "successful": "വിജയം",
-  "pashu_details_submitted_successfully": "പശു വിശദാംശങ്ങൾ വിജയകരമായി സമർപ്പിച്ചു! ഹോം പേജിൽ പോയി പുതുക്കുക",
+  "pashu_details_submitted_successfully": "പശു വിശദാംശങ്ങൾ വിജയകരമായി സമർപ്പിച്ചു!",
   "error": "പിഴവ്",
   "'Something_went_wrong_Please_try_again": "എന്തോ പിഴവ് സംഭവിച്ചു, ദയവായി വീണ്ടും ശ്രമിക്കുക",
   "your_password_is_incorrect": "നിങ്ങളുടെ പാസ്‌വേർഡ് തെറ്റാണ്",
-  "give_feedback":"അഭിപ്രായം അറിയിക്കുക"
+  "give_feedback":"അഭിപ്രായം അറിയിക്കുക",
+  "enter-your_name":"നിങ്ങളുടെ പേര് നൽകുക"
 }

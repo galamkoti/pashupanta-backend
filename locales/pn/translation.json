@@ -160,9 +160,10 @@
   "are_you_sure_to_delete_post": "ਕੀ ਤੁਸੀਂ ਯਕੀਨੀ ਹੋ ਕਿ ਪੋਸਟ ਮਿਟਾਉਣੀ ਹੈ?",
   "post_deleted_successfully": "ਪੋਸਟ ਸਫਲਤਾਪੂਰਵਕ ਮਿਟਾਈ ਗਈ",
   "successful": "ਸਫਲ",
-  "pashu_details_submitted_successfully": "pashu ਵੇਰਵੇ ਸਫਲਤਾਪੂਰਵਕ ਸਪੁਰਦ ਕੀਤੇ ਗਏ! ਹੋਮ ਪੇਜ 'ਤੇ ਜਾਓ ਅਤੇ ਤਾਜ਼ਾ ਕਰੋ",
+  "pashu_details_submitted_successfully": "pashu ਵੇਰਵੇ ਸਫਲਤਾਪੂਰਵਕ ਸਪੁਰਦ ਕੀਤੇ ਗਏ!",
   "error": "ਗਲਤੀ",
   "'Something_went_wrong_Please_try_again": "ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ ਹੈ. ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ",
   "your_password_is_incorrect": "ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਗਲਤ ਹੈ",
-  "give_feedback":"ਫੀਡਬੈਕ ਦਿਓ"
+  "give_feedback":"ਫੀਡਬੈਕ ਦਿਓ",
+  "enter_your_name":"ਆਪਣਾ ਨਾਮ ਦਰਜ ਕਰੋ"
 }

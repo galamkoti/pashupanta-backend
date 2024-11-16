@@ -72,7 +72,7 @@
   "play": "Play",
   "pause": "Pause",
   "for_sale": "For Sale",
-  "belongs_to_breed": "Belongs to Breed",
+  "belongs_to_breed": "Breed",
   "details_page": "Details Page",
   "category_preview": "Category Preview",
   "yes": "Yes",
@@ -160,9 +160,10 @@
   "are_you_sure_to_delete_post": "Are You Sure to Delete Post?",
   "post_deleted_successfully": "Post Deleted Successfully",
   "successful": "Successful",
-  "pashu_details_submitted_successfully": "pashu details submitted successfully! Go to Home Page and refresh",
+  "pashu_details_submitted_successfully": "pashu details submitted successfully!",
   "error": "Error",
   "something_went_wrong_please_try_again": "Something Went Wrong, Please Try Again",
   "your_password_is_incorrect": "Your Password is Incorrect",
-  "give_feedback":"Give Feedback"
+  "give_feedback":"Give Feedback",
+  "enter_your_name":"Enter Your Name"
 }

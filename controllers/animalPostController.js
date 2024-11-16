@@ -89,7 +89,7 @@ const createAnimalPost = async (req, res) => {
     await User.findByIdAndUpdate(user_id, {
       $push: { posts: newAnimalPost._id },
     });
-    res.status(201).json({ message: 'Animal Post Created!!' });
+    res.status(201).json({ message: 'Animal Post Created!!',singlePostData:newAnimalPost });
   } catch (error) {
     res.status(500).json({ message: 'Error creating post', error });
   }

@@ -166,6 +166,7 @@ const langController = async (req, res) => {
     Something_went_wrong_Please_try_again:req.t('Something_went_wrong_Please_try_again'),
     your_password_is_incorrect:req.t('your_password_is_incorrect'),
     give_feedback:req.t('give_feedback'),
+    enter_your_name:req.t('enter_your_name'),
   });
 };
 

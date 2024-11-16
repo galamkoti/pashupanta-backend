@@ -160,9 +160,10 @@
   "are_you_sure_to_delete_post": "பதிவை நீக்க விரும்புகிறீர்களா?",
   "post_deleted_successfully": "பதிவு வெற்றிகரமாக நீக்கப்பட்டது",
   "successful": "வெற்றிகரமானது",
-  "pashu_details_submitted_successfully": "பாஷு விவரங்கள் வெற்றிகரமாக சமர்ப்பிக்கப்பட்டன! முகப்புப் பக்கத்திற்குச் சென்று புதுப்பிக்கவும்",
+  "pashu_details_submitted_successfully": "பாஷு விவரங்கள் வெற்றிகரமாக சமர்ப்பிக்கப்பட்டன!",
   "error": "பிழை",
   "'Something_went_wrong_Please_try_again": "ஏதோ தவறு ஏற்பட்டது, மீண்டும் முயற்சிக்கவும்",
   "your_password_is_incorrect": "உங்கள் கடவுச்சொல் தவறு",
-  "give_feedback":"கருத்து தெரிவிக்கவும்"
+  "give_feedback":"கருத்து தெரிவிக்கவும்",
+  "enter_your_name":"உங்கள் பெயரை உள்ளிடவும்"
 }

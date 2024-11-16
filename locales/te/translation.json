@@ -162,9 +162,10 @@
   "are_you_sure_to_delete_post":"మీరు ఖచ్చితంగా పోస్ట్‌ని తొలగిస్తారా",
   "post_deleted_successfully":"పోస్ట్ విజయవంతంగా తొలగించబడింది",
   "successful":"విజయవంతమైంది",
-  "pashu_details_submitted_successfully":"పశు వివరాలు విజయవంతంగా సమర్పించబడ్డాయి! హోమ్ పేజీకి వెళ్లి రిఫ్రెష్ చేయండి",
+  "pashu_details_submitted_successfully":"పశు వివరాలు విజయవంతంగా సమర్పించబడ్డాయి!",
   "error":"లోపం",
   "'Something_went_wrong_Please_try_again":"ఏదో తప్పు జరిగింది. దయచేసి మళ్లీ ప్రయత్నించండి",
   "your_password_is_incorrect":"మీ పాస్‌వర్డ్ తప్పు",
-  "give_feedback":"అభిప్రాయాన్ని తెలియజేయండి"
+  "give_feedback":"అభిప్రాయాన్ని తెలియజేయండి",
+  "enter_your_name":"మీ పేరును నమోదు చేయండి"
 }
