@@ -51,6 +51,7 @@ const langController = async (req, res) => {
     play: req.t('play'),
     pause: req.t('pause'),
     save_post: req.t('save_post'),
+    saved_to_favorites: req.t('saved_to_favorites'),
     share_post: req.t('share_post'),
     km: req.t('KM'),
     call_seller: req.t('call_seller'),

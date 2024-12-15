@@ -88,7 +88,7 @@ const getMyOwnPosts = async (req, res) => {
         const limit = parseInt(req.query.limit) || 3;
         const skip = (page - 1) * limit;
 
-        const AnimalPostData = await Post.find({ kind: "AnimalPost", user_id: userId })
+        const AnimalPostData = await Post.find({ kind: "AnimalPost", user_id: userId }).sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit);
 
